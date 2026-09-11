@@ -11,4 +11,4 @@ def productos(request):
     ]
 
 
-    return render(request, 'index.html', {'productos':productos})
+    return render(request, 'index.html', {'lista':lista})
