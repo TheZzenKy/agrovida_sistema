@@ -3,13 +3,76 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Catálogo de Productos</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+        }
+        header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 1rem;
+            text-align: center;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 1rem;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            justify-content: center;
+        }
+        .product-card {
+            background: white;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            padding: 1rem;
+            width: 250px;
+            text-align: center;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .product-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+        .product-card h3 {
+            font-size: 1.2rem;
+            margin: 0.5rem 0;
+        }
+        .product-card p {
+            color: #555;
+            font-size: 0.9rem;
+            margin: 0.5rem 0;
+        }
+        .product-card .price {
+            color: #4CAF50;
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+        .product-card .stock {
+            color: #888;
+            font-size: 0.9rem;
+        }
+    </style>
 </head>
 <body>
-    {% for lista in lista %}
-        
-        <li>{{lista.nombre}} - {{lista.categoria}} - {{lista.precio}} - {{lista.stock}}</li>
-        
-    {% endfor %}
+    <header>
+        <h1>Catálogo de Productos</h1>
+    </header>
+    <div class="container">
+        {% for lista in lista %}
+        <div class="product-card">
+            <h3>{{ lista.nombre }}</h3>
+            <p>Categoría: {{ lista.categoria }}</p>
+            <p class="price">Precio: ${{ lista.precio }}</p>
+            <p class="stock">Stock: {{ lista.stock }}</p>
+        </div>
+        {% endfor %}
+    </div>
 </body>
 </html>
